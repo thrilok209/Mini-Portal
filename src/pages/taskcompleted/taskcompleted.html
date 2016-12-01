@@ -13,7 +13,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let item of taskCompleted | async">
+  <ion-card *ngFor="let item of taskCompletedTodisplay | async">
     <ion-card-header>
       {{item.title}}
     </ion-card-header>

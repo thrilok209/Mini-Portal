@@ -3,7 +3,8 @@ import { NavController } from 'ionic-angular';
 
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 import { PendingtasktoshowPage } from '../pendingtasktoshow/pendingtasktoshow';
-
+import {Observable} from 'rxjs';
+import { MyData } from '../../providers/my-data';
 /*
   Generated class for the Taskpending page.
 
@@ -17,9 +18,37 @@ import { PendingtasktoshowPage } from '../pendingtasktoshow/pendingtasktoshow';
 export class TaskpendingPage {
   taskPending: FirebaseListObservable<any>;
   taskCompleted: FirebaseListObservable<any>;
-  constructor(public navCtrl: NavController,af: AngularFire, ) {
+  usertask=[];
+  taskPendingTodisplay:Observable<any>;
+  cuserName;
+  TaskArr=[];
+  constructor(public myData: MyData,public navCtrl: NavController,af: AngularFire, ) {
     this.taskPending = af.database.list('/taskPENDING');
     this.taskCompleted = af.database.list('/taskCompleted');
+    this.cuserName=this.myData.Name
+    this.taskPending.subscribe(result => {
+      //  console.log(result);
+       this.TaskArr=result;
+      //  console.log(this.TaskArr)
+
+        //  console.log(ele)
+         for(let i=0;i<this.TaskArr.length;i++){
+          // console.log(this.TaskArr[i].userschecked)
+          for(let j=0;j<this.TaskArr[i].userschecked.length;j++){
+            //  console.log(this.TaskArr[i].userschecked[j])
+             let checkName=this.TaskArr[i].userschecked[j]
+             console.log(this.cuserName)
+            if(  this.cuserName == checkName){
+              this.usertask.push(this.TaskArr[i])
+              console.log("inside ch"+ checkName)
+            }
+         }
+        }
+        this.taskPendingTodisplay=Observable.from(this.usertask).toArray();
+       console.log(this.usertask)
+    });
+    console.log(this.cuserName)
+
   }
 
   whichToSub(key){

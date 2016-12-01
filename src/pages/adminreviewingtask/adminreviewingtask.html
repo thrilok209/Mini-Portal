@@ -14,5 +14,15 @@
 
 
 <ion-content padding>
+  <ion-card *ngFor="let item of taskCompleted | async">
+    <ion-card-header>
+      {{item.title}}
+    </ion-card-header>
+    <ion-card-content>
+    {{item.sub}}<br>
+    <button ion-button round (click)="whichToReview(item)">Check</button><ion-item>
 
+  </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

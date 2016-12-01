@@ -9,6 +9,7 @@ import { TaskpendingPage } from '../pages/taskpending/taskpending';
 import { SettingsPage } from '../pages/settings/settings';
 import { PendingtasktoshowPage } from '../pages/pendingtasktoshow/pendingtasktoshow';
 import { AdmintabsPage } from '../pages/admintabs/admintabs';
+import { AdmindetreviewPage } from '../pages/admindetreview/admindetreview';
 // import { AdmintaskaddingPage } from '../pages/admintaskadding/admintaskadding';
 import { AdminaddingtaskPage } from '../pages/adminaddingtask/adminaddingtask';
 import { AdminreviewingtaskPage } from '../pages/adminreviewingtask/adminreviewingtask';
@@ -44,7 +45,8 @@ const myFirebaseAuthConfig = {
     PendingtasktoshowPage,
     AdmintabsPage,
     AdminaddingtaskPage,
-    AdminreviewingtaskPage
+    AdminreviewingtaskPage,
+    AdmindetreviewPage
 
 
     // AdmintaskaddingPage
@@ -65,7 +67,8 @@ const myFirebaseAuthConfig = {
     PendingtasktoshowPage,
     AdmintabsPage,
     AdminaddingtaskPage,
-    AdminreviewingtaskPage
+    AdminreviewingtaskPage,
+    AdmindetreviewPage
 
 
     // AdmintaskaddingPage

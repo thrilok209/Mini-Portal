@@ -29,10 +29,19 @@
     <ion-input #con type="text" [value]="text1"></ion-input>
   </ion-item>
 
-  <ion-item *ngFor="let item of userName ">
+  <!-- <ion-item *ngFor="let item of userName ">
   <ion-label>{{item}}</ion-label>
-  <ion-checkbox color="dark" ([checked])="item"></ion-checkbox>
+  <ion-checkbox color="dark" value="{{item}}" (ionChange)="checked($event)"></ion-checkbox>
+</ion-item> -->
+
+<ion-item>
+  <ion-label>Users</ion-label>
+  <ion-select [(ngModel)]="toppings" (ionChange)="checked($event)"multiple="true" cancelText="Nah" okText="Okay!">
+    <ion-option *ngFor="let item of userName ">{{item}}</ion-option>
+
+  </ion-select>
 </ion-item>
-  <button ion-button full (click)="addingTasks(title.value,sub.value,con.value)">Add Task</button>
+
+  <button ion-button full (click)="addingTasks(title.value,sub.value,con.value)" >Add Task</button>
 </ion-list>
 </ion-content>
