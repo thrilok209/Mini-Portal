@@ -18,10 +18,15 @@ import { AdmindetreviewPage } from '../admindetreview/admindetreview';
 export class AdminreviewingtaskPage {
   taskPending: FirebaseListObservable<any>;
   taskCompleted: FirebaseListObservable<any>;
+  taskCompletedBy: FirebaseListObservable<any>;
 
   constructor(public navCtrl: NavController,af: AngularFire, public myData:MyData) {
     this.taskPending = af.database.list('/taskPENDING', { preserveSnapshot: true });
     this.taskCompleted = af.database.list('/taskCompleted');
+    this.taskCompletedBy = af.database.list('/taskCompleted/ansby');
+    this.taskCompletedBy.subscribe(result =>{
+      console.log(result)
+    })
   }
 
 whichToReview(key){

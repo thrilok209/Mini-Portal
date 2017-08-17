@@ -18,6 +18,8 @@ export class AdminaddingtaskPage {
    alerttext;
    text1;
    userSchecked;
+   taskcompletedkeyofusera={}
+
 
    taskPending: FirebaseListObservable<any>;
    taskCompleted: FirebaseListObservable<any>;
@@ -45,7 +47,7 @@ export class AdminaddingtaskPage {
          USERname.push(ele.name)
        })
        console.log(USERname) })
-       let usersss = this.userName[1]
+      //  let usersss = this.userName[1]
       //  let dhdg = '/"usersss"'
       //  this.taskUser2 = af.database.list(dhdg);
     }
@@ -53,13 +55,20 @@ export class AdminaddingtaskPage {
 
 
   addingTasks(Title,Sub,Content){
-    // this.TotalUsers
+    // this.TotalUsrs
+    let ansBYUSER=["test1"];
     if(Sub.length<=1 || Title.length<=1 || Content.length<=1){
      this.alerttext="enter a valid"
 
     //  console.log("check1")
     }else{
-      this.taskPending.push({ title: Title , sub: Sub, content:Content , userschecked:this.userSchecked});
+      let totaltask={ title: Title , sub: Sub, content:Content , userschecked:this.userSchecked , ansby:ansBYUSER , keytaskCom:"a" , atm:"1"}
+      for(let i=0;i<this.userSchecked.length;i++){
+        totaltask[this.userSchecked[i]]="a"
+        // console.log(this.userSchecked[i])
+      }
+      // console.log(totaltask)
+      this.taskPending.push(totaltask);
       // this.taskUser2.push({ title: Title , sub: Sub, content:Content , userschecked:this.userSchecked});
       // console.log(this.taskPending)
       return this.text1=' '
@@ -71,6 +80,7 @@ export class AdminaddingtaskPage {
 checked(e){
   this.userSchecked=e
   console.log(e);
+
 }
 
 }

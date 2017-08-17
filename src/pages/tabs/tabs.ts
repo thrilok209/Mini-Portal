@@ -4,6 +4,7 @@ import { HomePage } from '../home/home';
 import { TaskcompletedPage } from '../taskcompleted/taskcompleted';
 import { TaskpendingPage } from '../taskpending/taskpending';
 import { SettingsPage } from '../settings/settings';
+import { NeedsubPage } from '../needsub/needsub';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -14,6 +15,7 @@ export class TabsPage {
   tab1Root: any = HomePage;
   tab2Root: any = TaskcompletedPage;
   tab3Root: any = TaskpendingPage;
+  tab5Root: any = NeedsubPage;
   tab4Root: any = SettingsPage;
 
   constructor() {

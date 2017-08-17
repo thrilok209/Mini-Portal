@@ -26,26 +26,58 @@ export class TaskcompletedPage {
     this.taskPending = af.database.list('/taskPENDING');
     this.taskCompleted = af.database.list('/taskCompleted');
     this.cuserName=this.myData.Name
-    this.taskPending.subscribe(result => {
-      //  console.log(result);
-       this.TaskArr=result;
-      //  console.log(this.TaskArr)
+    // this.taskPending.subscribe(result => {
+    //   //  console.log(result);
+    //    this.TaskArr=result;
+    //   //  console.log(this.TaskArr)
+    //
+    //     //  console.log(ele)
+    //      for(let i=0;i<this.TaskArr.length;i++){
+    //       // console.log(this.TaskArr[i].userschecked)
+    //       for(let j=0;j<this.TaskArr[i].userschecked.length;j++){
+    //         //  console.log(this.TaskArr[i].userschecked[j])
+    //          let checkName=this.TaskArr[i].userschecked[j]
+    //         //  let atmcheck1=this.TaskArr[i]
+    //         //  let atmcheck2=this.TaskArr[i]
+    //          console.log("hello bro i am here")
+    //         //  console.log(atmcheck1)
+    //         //  console.log(atmcheck2)
+    //          console.log("hello bro i am bye")
+    //          console.log(this.cuserName)
+    //         if(  this.cuserName == checkName  ){
+    //           this.usertask.push(this.TaskArr[i])
+    //           console.log("inside ch "+ checkName)
+    //         }
+    //      }
+    //     }
+    //     this.taskCompletedTodisplay=Observable.from(this.usertask).toArray();
+    //    console.log(this.usertask)
+    // });
+    this.taskCompleted.subscribe(result => {
+console.log(result);
+this.TaskArr=result;
+this.usertask=[]
+for(let i=0;i<this.TaskArr.length;i++){
+  if(this.TaskArr[i].title==this.cuserName){
+    if(this.TaskArr[i].atm==this.TaskArr[i].atm2){
+      this.usertask.push(this.TaskArr[i])
 
-        //  console.log(ele)
-         for(let i=0;i<this.TaskArr.length;i++){
-          // console.log(this.TaskArr[i].userschecked)
-          for(let j=0;j<this.TaskArr[i].userschecked.length;j++){
-            //  console.log(this.TaskArr[i].userschecked[j])
-             let checkName=this.TaskArr[i].userschecked[j]
-             console.log(this.cuserName)
-            if(  this.cuserName == checkName){
-              this.usertask.push(this.TaskArr[i])
-              console.log("inside ch"+ checkName)
-            }
-         }
-        }
-        this.taskCompletedTodisplay=Observable.from(this.usertask).toArray();
-       console.log(this.usertask)
+    }
+  }
+}
+for(let i=0;i<this.usertask.length;i++){
+  if(this.usertask[i].sat=="submited by user"){
+    this.usertask[i].sat="UNDER INSPECTION"
+  }
+  if(this.usertask[i].sat=="Send Back To user"){
+    this.usertask[i].sat="Check your pending assignment"
+  }
+  if(this.usertask[i].sat=="Completed"){
+    this.usertask[i].sat=" Assignment closed"
+  }
+}
+console.log(this.usertask)
+this.taskCompletedTodisplay=Observable.from(this.usertask).toArray();
     });
     console.log(this.cuserName)
   }

@@ -40,7 +40,9 @@ export class LoginpagePage {
     provider: AuthProviders.Password,
     method: AuthMethods.Password,
   })
-  // .then(data =>{ console.log(data); this.navCtrl.push(TabsPage);});
+  .then(data =>{ console.log(data);
+    //  this.navCtrl.push(TabsPage);
+   });
   }
 
 }

@@ -29,6 +29,7 @@ export class TaskpendingPage {
     this.taskPending.subscribe(result => {
       //  console.log(result);
        this.TaskArr=result;
+       this.usertask=[];
       //  console.log(this.TaskArr)
 
         //  console.log(ele)
@@ -44,8 +45,8 @@ export class TaskpendingPage {
             }
          }
         }
-        this.taskPendingTodisplay=Observable.from(this.usertask).toArray();
-       console.log(this.usertask)
+        console.log(this.usertask)
+        return this.taskPendingTodisplay=Observable.from(this.usertask).toArray();
     });
     console.log(this.cuserName)
 

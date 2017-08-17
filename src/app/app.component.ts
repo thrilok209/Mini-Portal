@@ -35,6 +35,9 @@ export class MyApp {
           if(auth.auth.email!='msomkarnath@gmail.com'){
           //   console.log('setting root as TabsPage');
             this.rootPage = TabsPage;
+          }
+          if(auth.auth.email!='teacher@gmail.com'){
+            this.rootPage = TabsPage;
           }else{
             this.rootPage = AdmintabsPage;
           }

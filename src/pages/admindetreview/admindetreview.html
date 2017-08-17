@@ -14,11 +14,20 @@
 
 
 <ion-content padding>
-  <p>{{TodisplayIndet.title}}</p>
-  <p>{{TodisplayIndet.content}}</p>
-  <p>hellos</p>
-  <ion-label>Submit Your link</ion-label>
-  <ion-input #given type="text"></ion-input>
-  <button ion-button round (click)="whichToSub2(given.value)">Resend</button>
+  <!-- <p>{{TodisplayIndet.title}}</p> -->
+  <p>{{TodisplayCOMIndet.sub}}</p>
+  <p>{{TodisplayCOMIndet.content}}</p>
+<p>{{TodisplayCOMIndet.ans}}</p>
+  <!-- <ion-label>Submit Your link</ion-label> -->
+  <!-- <ion-input #given type="text"></ion-input> -->
+  <button ion-button round (click)="whichToSub2(TodisplayCOMIndet.$key)">Resend</button>
+  <!-- <ion-item>
+    <ion-label>Users</ion-label>
+    <ion-select [(ngModel)]="toppings" (ionChange)="checked($event)" multiple="true" cancelText="Nah" okText="Okay!">
+      <ion-option *ngFor="let item of userName">{{item}}</ion-option>
+
+    </ion-select>
+  </ion-item> -->
   <button ion-button round (click)="whichToSub3()">Close</button>
+  <button ion-button round (click)="completedtask()">Done</button>
 </ion-content>
